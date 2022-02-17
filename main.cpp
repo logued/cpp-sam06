@@ -42,12 +42,12 @@ int main()
     return 0;
 }
 
-void increase(int* ptr_x, int length)   // ptr_x is a pointer to an int
+void increase(int* array_ptr, int length)   // arr_ptr is an array pointer - a pointer to an int
 {                                       // It will point to the first element in the array x[].
     for(int i = 0; i < length; i++)
     {
-        *ptr_x = *ptr_x + 1;         // add one to the element that px is pointing to.
-        ptr_x++;                     // increment the pointer to point at the next array element
+        *array_ptr = *array_ptr + 1;         // add one to the element that arr_ptr is pointing to.
+        array_ptr++;                     // increment the pointer to point at the next array element
     }
 }
 
@@ -65,14 +65,24 @@ void display(int* array_ptr, int length)    // pointer to int array, length of a
 //******************************* Exercise *******************************************
 
 //TODO  Q.1.
-// Declare two arrays of type int, of length 5, in main() called y[] and z[]
-// Populate array x[] array with five values.
-// Write a function called copy() that will accept two array arguments,
+// Declare two arrays of type int, each of length 5, in main() called y[] and z[]
+// Populate the array y[] with five values.
+// Write a function called copy() that will accept two array arguments, y and z,
 //  - both of type 'pointer to int' -
-// and will copy the contents of one array (source) to the other array (target)
+// and will copy the contents of one array y(source) to the other array  z (target)
 // using pointer notation.
-// Pass in the length of the source array.
+// In main(), output z[] to confirm that your function has worked.
+// You will need to pass in the length of the source array.
 // Here is the function prototype:
 //    void copy(int* pTarget, int* pSource, int length)
+
+//TODO Q.2
+// Write a function pallindrome() that will accept an array of int
+// and will output the elements in order, directly followed by the
+// elements in reverse order to give a pallindrome effect.
+// e.g. if we use x[] from above, the output should be:
+//          10,20,30,40,40,30,20,10
+//
+
 
 

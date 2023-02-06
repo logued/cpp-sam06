@@ -1,27 +1,28 @@
-// Pointers, Arrays, Functions   Feb 2022
+// Pointers, Arrays, Functions   Feb 2023
 
 /**
  * Demonstrates :
  * - passing arrays into functions
- * - using pointers to access arrays passed into functions
+ * - using pointers to access array elements passed into functions
  *
- * When an array is passed to a function, what is actually passed is
+ * When a C++ array is passed to a function, what is actually passed in is
  * the ADDRESS of the first element of the array.
  * If we pass an address into a function as an argument, then a pointer parameter
- * (or an array parameter) must be defined in the function header to accept the address.
+ * (or an array parameter) must be defined in the function header to accept that address.
  *
  * When the address of an object (or array) is passed into a function,
- * the code in the function has access to the object that the pointer is pointing at,
+ * the code in the function has access to the object that the pointer parameter is pointing at,
  * and may access and/or change its value.
- * (unless the pointer is defined as a pointer to a 'const object').
+ * (That is, unless the pointer is defined as a pointer to a 'const object').
  *
  * */
 
 #include <iostream>
 using namespace std;
 
-void increase(int* , int );  // function prototypes
-void display(int* , int );
+// function prototypes
+void increase( int* , int );
+void display( const int* , int );
 
 int main()
 {
@@ -32,7 +33,7 @@ int main()
 
     // Remember, the name of array is the address of the first element in the array.
     // The number of elements must also be passed, as the function has no other way of knowing the length
-    // of the array... (Arrays in Java are objects, and have a length field inbuilt)
+    // of the array.
 
     increase(x, 4);
 
@@ -42,21 +43,36 @@ int main()
     return 0;
 }
 
-void increase(int* array_ptr, int length)   // arr_ptr is an array pointer - a pointer to an int
-{                                       // It will point to the first element in the array x[].
+// increase() accepts an array of ints, and uses a pointer-to-int parameter
+// to accept the array and to access each element in the array
+// by incrementing the pointer.
+//
+// ptr is a pointer to an int.
+// It points to the first element of the array x[].
+//
+void increase(int* ptr, int length)
+{
+    // iterate over each array element using the pointer
     for(int i = 0; i < length; i++)
     {
-        *array_ptr = *array_ptr + 1;         // add one to the element that arr_ptr is pointing to.
-        array_ptr++;                     // increment the pointer to point at the next array element
+        *ptr = *ptr + 1;         // add 1 to the element that ptr is pointing to.
+        ptr++;                   // increment the pointer to point at the next array element
     }
 }
 
-void display(int* array_ptr, int length)    // pointer to int array, length of array
+/**
+ * Use a pointer to a constant int to iterate over each element
+ * in the passed array, and output each element by dereferencing the pointer.
+ *
+ * @param ptr
+ * @param length
+ */
+void display(const int* ptr, int length)
 {
     for (int i = 0; i < length; i++)
     {
-        cout << *array_ptr << ",";
-        array_ptr++;
+        cout << *ptr << ",";
+        ptr++;
     }
     cout << endl;
 }
@@ -67,7 +83,7 @@ void display(int* array_ptr, int length)    // pointer to int array, length of a
 //TODO  Q.1.
 // Declare two arrays of type int, each of length 5, in main() called y[] and z[]
 // Populate the array y[] with five values.
-// Write a function called copy() that will accept two array arguments, y and z,
+// Write a function called copy(z,y,len) that will accept two array arguments, y and z,
 //  - both of type 'pointer to int' -
 // and will copy the contents of one array y(source) to the other array  z (target)
 // using pointer notation.
@@ -77,9 +93,9 @@ void display(int* array_ptr, int length)    // pointer to int array, length of a
 //    void copy(int* pTarget, int* pSource, int length)
 
 //TODO Q.2
-// Write a function pallindrome() that will accept an array of int
+// Write a function palindrome() that will accept an array of int
 // and will output the elements in order, directly followed by the
-// elements in reverse order to give a pallindrome effect.
+// elements in reverse order to give a palindrome effect.
 // e.g. if we use x[] from above, the output should be:
 //          10,20,30,40,40,30,20,10
 //

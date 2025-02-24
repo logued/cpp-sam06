@@ -1,4 +1,4 @@
-// Pointers, Arrays, Functions   Feb 2023
+// Pointers, Arrays, Functions   Feb 2025
 
 /**
  * Demonstrates :
@@ -90,7 +90,7 @@ void display(const int* ptr, int length)
 // In main(), output z[] to confirm that your function has worked.
 // You will need to pass in the length of the source array.
 // Here is the function prototype:
-//    void copy(int* pTarget, int* pSource, int length)
+//    void copy(int* pTarget, const int* pSource, int length)
 
 //TODO Q.2
 // Write a function palindrome() that will accept an array of int

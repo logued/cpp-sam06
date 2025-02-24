@@ -90,7 +90,7 @@ void display(const int* ptr, int length)
 // In main(), output z[] to confirm that your function has worked.
 // You will need to pass in the length of the source array.
 // Here is the function prototype:
-//    void copyArray(int* from, const int* to, int length)
+//    void copyArray(const int* from, int* to, int length)
 
 //TODO Q.2
 // Write a function palindrome() that will accept an array of int

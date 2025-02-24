@@ -1,4 +1,4 @@
-// Pointers, Arrays, Functions   Feb 2025
+/// Pointers, Arrays, Functions   Feb 2025
 
 /**
  * Demonstrates :
@@ -82,15 +82,15 @@ void display(const int* ptr, int length)
 
 //TODO  Q.1.
 // Declare two arrays of type int, each of length 5, in main() called y[] and z[]
-// Populate the array y[] with five values.
-// Write a function called copy(z,y,len) that will accept two array arguments, y and z,
-//  - both of type 'pointer to int' -
+// Populate the array y[] with five values. Create but do not initialise z[].
+// Write a function called copyArray(from,to,length) that will accept two array arguments,
+// from and to - both of type 'pointer to int' -
 // and will copy the contents of one array y(source) to the other array  z (target)
 // using pointer notation.
 // In main(), output z[] to confirm that your function has worked.
 // You will need to pass in the length of the source array.
 // Here is the function prototype:
-//    void copy(int* pTarget, const int* pSource, int length)
+//    void copyArray(int* from, const int* to, int length)
 
 //TODO Q.2
 // Write a function palindrome() that will accept an array of int
@@ -99,6 +99,5 @@ void display(const int* ptr, int length)
 // e.g. if we use x[] from above, the output should be:
 //          10,20,30,40,40,30,20,10
 //
-
 
 

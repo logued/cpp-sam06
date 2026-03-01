@@ -20,8 +20,9 @@
 #include <iostream>
 using namespace std;
 
-void increase(int* , int );  // function prototypes
-void display(int* , int );
+// function prototypes
+void increase(int* , int );  // 'pointer to int' and 'int' parameter types
+void display(const int* , int );
 
 int main()
 {
@@ -32,31 +33,31 @@ int main()
 
     // Remember, the name of array is the address of the first element in the array.
     // The number of elements must also be passed, as the function has no other way of knowing the length
-    // of the array... (Arrays in Java are objects, and have a length field inbuilt)
+    // of the array... (Arrays in Java are objects, and have a length field inbuilt, but not in C++)
 
-    increase(x, 4);
+    increase( x, 4 );
 
     cout << "After increase() \nx[] = ";
-    display(x, 4);
+    display( x, 4 );
 
     return 0;
 }
 
-void increase(int* array_ptr, int length)   // arr_ptr is an array pointer - a pointer to an int
-{                                       // It will point to the first element in the array x[].
+void increase(int* ptr, int length)   // ptr is a pointer to an int, for pointing at array elements
+{                                       //ptr will point to the first element in the array x[].
     for(int i = 0; i < length; i++)
     {
-        *array_ptr = *array_ptr + 1;         // add one to the element that arr_ptr is pointing to.
-        array_ptr++;                     // increment the pointer to point at the next array element
+        *ptr = *ptr + 1;         // add one to the element that ptr is pointing to. Dereferencing.
+        ++ptr;                     // increment the pointer to point at the next array element
     }
 }
 
-void display(int* array_ptr, int length)    // pointer to int array, length of array
+void display(const int* ptr, int length)    // pointer to 'constant int' in the array
 {
     for (int i = 0; i < length; i++)
     {
-        cout << *array_ptr << ",";
-        array_ptr++;
+        cout << *ptr << ",";  // dereference the pointer to get value
+        ++ptr;                  // increment the pointer to next element in array
     }
     cout << endl;
 }
@@ -77,9 +78,9 @@ void display(int* array_ptr, int length)    // pointer to int array, length of a
 //    void copy(int* pTarget, int* pSource, int length)
 
 //TODO Q.2
-// Write a function pallindrome() that will accept an array of int
+// Write a function palindrome() that will accept an array of int
 // and will output the elements in order, directly followed by the
-// elements in reverse order to give a pallindrome effect.
+// elements in reverse order to give a palindrome effect.
 // e.g. if we use x[] from above, the output should be:
 //          10,20,30,40,40,30,20,10
 //
